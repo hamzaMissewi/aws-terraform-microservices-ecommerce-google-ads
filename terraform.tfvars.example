@@ -1,0 +1,8 @@
+# Deep Seek API Configuration
+# Copy this file to terraform.tfvars and add your actual API key
+deepseek_api_key = "your_deepseek_api_key_here"
+
+# Other example variables
+project_name = "ecommerce-platform"
+environment = "dev"
+aws_region = "us-east-1"
