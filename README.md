@@ -1,31 +1,73 @@
-# 🛒 Microservices E-Commerce Platform
+# 🛒 Microservices E-Commerce Platform with Google Ads Integration
 
-A production-ready, scalable microservices e-commerce platform built with Terraform and AWS. This project demonstrates advanced cloud architecture patterns including container orchestration, CI/CD pipelines, and comprehensive monitoring.
+A production-ready, scalable microservices e-commerce platform built with Terraform and AWS, featuring advanced **Google Ads integration** with Go-based Lambda functions for automated campaign optimization and real-time analytics.
 
 ## 🏗️ Architecture Overview
 
 ### **Microservices Components**
 - **API Gateway**: Amazon API Gateway with custom domain
-- **User Service**: Node.js with PostgreSQL
-- **Product Service**: Python with MongoDB
+- **User Service**: Go with DynamoDB (NEW)
+- **Product Service**: Python with DocumentDB
 - **Order Service**: Java with MySQL
 - **Payment Service**: Node.js with Redis
 - **Notification Service**: Python with SQS
+- **Google Ads Integration**: Go Lambda functions (NEW)
 
 ### **Infrastructure Components**
 - **Container Orchestration**: Amazon ECS with Fargate
-- **Databases**: RDS (PostgreSQL, MySQL), DocumentDB (MongoDB)
+- **Databases**: RDS (PostgreSQL, MySQL), DocumentDB (MongoDB), DynamoDB
 - **Caching**: ElastiCache Redis
 - **Messaging**: SQS, SNS
 - **CDN**: CloudFront with WAF
 - **Monitoring**: CloudWatch, X-Ray, Container Insights
 - **CI/CD**: GitHub Actions with CodePipeline
+- **Google Ads**: Automated campaign monitoring and bid optimization
 
 ### **Network Architecture**
 - **VPC**: Multi-AZ with public/private subnets
 - **Load Balancing**: Application Load Balancers
 - **Security**: Security Groups, WAF, Secrets Manager
 - **DNS**: Route53 with ACM certificates
+
+## 🚀 New Features
+
+### **Google Ads Integration** 🎯
+- **Automated Campaign Monitoring**: Real-time performance tracking with intelligent alerting
+- **AI-Powered Bid Optimization**: Go-based Lambda functions for smart bid adjustments
+- **Performance Analytics**: Comprehensive analytics with historical data storage
+- **Scheduled Workflows**: Event-driven architecture for continuous optimization
+
+### **Go Microservices** 🐹
+- **High-Performance Services**: Go-based user service with DynamoDB
+- **Docker Optimized**: Multi-stage builds with security best practices
+- **Cloud Native**: Designed for serverless and containerized deployments
+
+### **Advanced Security** 🔒
+- **Zero Trust Architecture**: Comprehensive security controls
+- **Secrets Management**: AWS Secrets Manager integration
+- **Compliance Ready**: GDPR and SOC 2 considerations
+- **Network Security**: VPC endpoints and private connectivity
+
+## 📊 Google Ads Integration
+
+### **Core Features**
+- **Campaign Monitor Lambda**: Monitors performance every 15 minutes
+- **Bid Optimizer Lambda**: Optimizes bids hourly based on performance metrics
+- **Ad Analytics Lambda**: Stores and analyzes performance data
+
+### **Smart Optimization**
+- **Performance-Based Bidding**: Adjusts bids based on CTR, conversion rate, and cost
+- **Automated Alerts**: Notifies about low performance or high costs
+- **ROI Maximization**: Focuses on campaigns with best return on investment
+
+### **Integration Architecture**
+```
+Google Ads API → Go Lambda Functions → AWS SNS → Notifications
+                    ↓
+              AWS Secrets Manager (Credentials)
+                    ↓
+              DynamoDB (Analytics Storage)
+```
 
 ## 🚀 Features
 

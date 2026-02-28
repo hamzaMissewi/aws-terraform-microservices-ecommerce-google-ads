@@ -494,6 +494,49 @@ variable "waf_rules" {
   ]
 }
 
+# Google Ads Configuration
+variable "google_ads_client_id" {
+  description = "Google Ads API client ID"
+  type        = string
+  sensitive   = true
+}
+
+variable "google_ads_client_secret" {
+  description = "Google Ads API client secret"
+  type        = string
+  sensitive   = true
+}
+
+variable "google_ads_refresh_token" {
+  description = "Google Ads API refresh token"
+  type        = string
+  sensitive   = true
+}
+
+variable "google_ads_developer_token" {
+  description = "Google Ads API developer token"
+  type        = string
+  sensitive   = true
+}
+
+variable "campaign_monitor_schedule" {
+  description = "Cron expression for campaign monitoring"
+  type        = string
+  default     = "rate(15 minutes)"
+}
+
+variable "bid_optimizer_schedule" {
+  description = "Cron expression for bid optimization"
+  type        = string
+  default     = "rate(1 hour)"
+}
+
+variable "optimization_interval" {
+  description = "Optimization interval in minutes"
+  type        = string
+  default     = "60"
+}
+
 # Deep Seek API Configuration
 variable "deepseek_api_key" {
   description = "Deep Seek API key for AI services"

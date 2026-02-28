@@ -1,0 +1,222 @@
+# Terraform sensitive files
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+terraform.tfvars
+*.tfvars.json
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+.envrc
+secrets.yml
+secrets.yaml
+secrets.json
+config/secrets/
+**/secrets/
+
+# AWS credentials and configuration
+.aws/
+.aws/credentials
+.aws/config
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_rsa.pub
+
+# Lambda function build artifacts and dependencies
+lambda/**/bin/
+lambda/**/dist/
+lambda/**/build/
+lambda/**/target/
+lambda/**/node_modules/
+lambda/**/vendor/
+lambda/**/.gradle/
+lambda/**/.cache/
+lambda/**/.serverless/
+lambda/**/.webpack/
+lambda/**/package-lock.json
+lambda/**/yarn.lock
+lambda/**/go.sum
+lambda/**/go.mod.backup
+lambda/*.zip
+lambda/*/main
+
+# Go specific
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+go.work.sum
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Build artifacts
+dist/
+build/
+bin/
+
+*.example
+**/*ignore*
+!.gitignore
+
+variables.tf
+
+# Node.js specific
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.eslintcache
+
+# Docker
+.dockerignore
+
+# Documentation build
+docs/_build/
+
+# Backup files
+*.bak
+*.backup
+
+# Local configuration
+local.tfvars
+dev.tfvars
+prod.tfvars
+
+# Secrets and certificates
+secrets/
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+id_rsa
+id_rsa.pub
+*.pem
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Cache
+.cache/
+.parcel-cache/
+
+# Coverage reports
+coverage.txt
+coverage.html
+*.cover
+
+# Test files
+test-results/
+junit.xml
+
+# Local scripts
+scripts/local-*
+scripts/dev-*
+
+# Python specific (if any Lambda functions use Python)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Kubernetes configuration
+*.kubeconfig
+kubeconfig
+
+# CI/CD local files
+.github/workflows/local.*
+.gitlab-ci.local.yml
+
+# Local development directories
+.local/
+local/
+dev/
+development/
+
+# Additional sensitive configuration files
+config/local.*
+config/production.*
+config/staging.*
+application.local.properties
+application.prod.properties
+
+# Docker override files
+.dockerignore.local
+docker-compose.override.yml
+
+# Package manager locks (keep examples)
+package-lock.json
+yarn.lock
+composer.lock
+Pipfile.lock
+!package-lock.json.example
+!yarn.lock.example
+!composer.lock.example
+!Pipfile.lock.example

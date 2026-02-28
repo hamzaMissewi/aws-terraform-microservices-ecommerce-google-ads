@@ -311,3 +311,33 @@ module "route53" {
   
   depends_on = [module.cloudfront, module.api_gateway]
 }
+
+# Google Ads Integration Module
+module "google_ads" {
+  source = "./modules/google-ads"
+  
+  project_name = var.project_name
+  environment  = var.environment
+  
+  # Google Ads Configuration
+  google_ads_client_id      = var.google_ads_client_id
+  google_ads_client_secret  = var.google_ads_client_secret
+  google_ads_refresh_token  = var.google_ads_refresh_token
+  google_ads_developer_token = var.google_ads_developer_token
+  
+  # AWS Configuration
+  kms_key_arn    = module.security.kms_key_arn
+  sns_topic_arn  = module.monitoring.sns_topic_arn
+  dynamodb_table_arn = module.analytics.dynamodb_table_arn
+  
+  # Scheduling
+  campaign_monitor_schedule = var.campaign_monitor_schedule
+  bid_optimizer_schedule     = var.bid_optimizer_schedule
+  optimization_interval     = var.optimization_interval
+  
+  tags = {
+    Name = "${var.project_name}-google-ads"
+  }
+  
+  depends_on = [module.security, module.monitoring]
+}
