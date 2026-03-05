@@ -7,7 +7,6 @@ import (
 	"log"
 	"math"
 	"os"
-	"strconv"
 	"time"
 
 	"github.com/aws/aws-lambda-go/lambda"
@@ -15,13 +14,13 @@ import (
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/secretsmanager"
 	"github.com/aws/aws-sdk-go-v2/service/sns"
-	"google.golang.org/api/option"
 	"google.golang.org/api/googleads"
+	"google.golang.org/api/option"
 )
 
 type BidOptimizationEvent struct {
-	Timestamp time.Time `json:"timestamp"`
-	Environment string  `json:"environment"`
+	Timestamp   time.Time `json:"timestamp"`
+	Environment string    `json:"environment"`
 }
 
 type BidOptimizationResult struct {
@@ -39,16 +38,16 @@ type BidOptimizationResult struct {
 }
 
 type GoogleAdsConfig struct {
-	ClientID      string `json:"client_id"`
-	ClientSecret  string `json:"client_secret"`
-	RefreshToken  string `json:"refresh_token"`
+	ClientID       string `json:"client_id"`
+	ClientSecret   string `json:"client_secret"`
+	RefreshToken   string `json:"refresh_token"`
 	DeveloperToken string `json:"developer_token"`
 }
 
 var (
-	secretName   = os.Getenv("GOOGLE_ADS_SECRET_ARN")
-	snsTopicARN  = os.Getenv("SNS_TOPIC_ARN")
-	environment  = os.Getenv("ENVIRONMENT")
+	secretName  = os.Getenv("GOOGLE_ADS_SECRET_ARN")
+	snsTopicARN = os.Getenv("SNS_TOPIC_ARN")
+	environment = os.Getenv("ENVIRONMENT")
 )
 
 func main() {
@@ -124,7 +123,7 @@ func createGoogleAdsConfig(config *GoogleAdsConfig) []option.ClientOption {
 func createGoogleAdsClient(config *GoogleAdsConfig) (*googleads.Service, error) {
 	ctx := context.Background()
 	opts := createGoogleAdsConfig(config)
-	
+
 	srv, err := googleads.NewService(ctx, opts...)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create Google Ads service: %w", err)
@@ -278,13 +277,13 @@ func sendOptimizationResults(ctx context.Context, results []BidOptimizationResul
 
 	// Send summary message
 	summary := map[string]interface{}{
-		"timestamp":   time.Now(),
-		"environment": environment,
+		"timestamp":             time.Now(),
+		"environment":           environment,
 		"total_recommendations": len(results),
 		"optimization_summary": map[string]int{
-			"INCREASE_BID":       len(groupedResults["INCREASE_BID"]),
-			"DECREASE_BID":       len(groupedResults["DECREASE_BID"]),
-			"MODERATE_INCREASE":  len(groupedResults["MODERATE_INCREASE"]),
+			"INCREASE_BID":      len(groupedResults["INCREASE_BID"]),
+			"DECREASE_BID":      len(groupedResults["DECREASE_BID"]),
+			"MODERATE_INCREASE": len(groupedResults["MODERATE_INCREASE"]),
 		},
 		"recommendations": results,
 	}
